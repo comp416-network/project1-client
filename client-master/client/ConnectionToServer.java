@@ -4,13 +4,13 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-
+// from ps
 public class ConnectionToServer
 {
-    public static final String DEFAULT_SERVER_ADDRESS = "172.20.120.100";
-    public static final int DEFAULT_SERVER_PORT = 4444;
+
+    public static final String DEFAULT_SERVER_ADDRESS = Config.SERVER_ADDRESS;
+    public static final int DEFAULT_SERVER_PORT = Config.SERVER_PORT;
     private Socket s;
-    //private BufferedReader br;
     protected BufferedReader is;
     protected PrintWriter os;
 
@@ -36,7 +36,6 @@ public class ConnectionToServer
         try
         {
             s=new Socket(serverAddress, serverPort);
-            //br= new BufferedReader(new InputStreamReader(System.in));
             /*
             Read and write buffers on the socket
              */
@@ -47,7 +46,6 @@ public class ConnectionToServer
         }
         catch (IOException e)
         {
-            //e.printStackTrace();
             System.err.println("Error: no server has been found on " + serverAddress + "/" + serverPort);
         }
     }
@@ -80,41 +78,6 @@ public class ConnectionToServer
         return response;
     }
 
-
-
-
-    // public int[] AskForDeck(){
-    //     int[] received = new int[26]
-    //     int response = -1
-    //     try
-    //     {
-    //         /*
-    //         Sends the message to the server via PrintWriter
-    //          */
-    //         for (int i = 0 ; i < 26; i++){
-    //             response = -1
-    //             os.println("Next Card");
-    //             os.flush();
-    //             /*
-    //             Reads a line from the server via Buffer Reader
-    //              */
-    //             response = is.readLine();
-    //             if (response == -1){
-    //                 System.out.println("Ask for Deck error");
-    //             }
-    //             received[i] = response;
-    //         }
-    //     }
-    //     catch(IOException e)
-    //     {
-    //         e.printStackTrace();
-    //         System.out.println("ConnectionToServer. SendForAnswer. Socket read Error");
-    //     }
-
-    //     return received;
-    // }
-
-
     /**
      * Disconnects the socket and closes the buffers
      */
@@ -124,9 +87,7 @@ public class ConnectionToServer
         {
             is.close();
             os.close();
-            //br.close();
             s.close();
-            // System.out.println("ConnectionToServer. SendForAnswer. Connection Closed");
         }
         catch (IOException e)
         {
