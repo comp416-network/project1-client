@@ -7,7 +7,7 @@ import java.net.Socket;
 
 public class ConnectionToServer
 {
-    public static final String DEFAULT_SERVER_ADDRESS = "localhost";
+    public static final String DEFAULT_SERVER_ADDRESS = "172.20.120.100";
     public static final int DEFAULT_SERVER_PORT = 4444;
     private Socket s;
     //private BufferedReader br;
@@ -81,7 +81,7 @@ public class ConnectionToServer
     }
 
 
-    
+
 
     // public int[] AskForDeck(){
     //     int[] received = new int[26]
@@ -110,7 +110,7 @@ public class ConnectionToServer
     //         e.printStackTrace();
     //         System.out.println("ConnectionToServer. SendForAnswer. Socket read Error");
     //     }
-        
+
     //     return received;
     // }
 
