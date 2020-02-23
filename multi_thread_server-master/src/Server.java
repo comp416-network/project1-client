@@ -19,8 +19,9 @@ public class Server
     {
         try
         {
-            serverSocket = new ServerSocket(port);
-            System.out.println("Oppened up a server socket on " + Inet4Address.getLocalHost());
+            InetAddress addr = InetAddress.getByName("localhost");
+            serverSocket = new ServerSocket(port,10000,addr);
+            System.out.println("Oppened up a server socket on " + addr)   ;
         }
         catch (IOException e)
         {
